@@ -73,7 +73,7 @@ for x in range(i):
 	Sentiment_Polarity.append(blob.sentiment.polarity)
 
 
-
+mail.logout()
 print "Done\n\n"	
 #columns=["From", "CC", "To", "Subject", "Sentiment_Polarity"]
 #From = []; CC = []; To = []; Subject = []; Sentiment_Polarity = [];
