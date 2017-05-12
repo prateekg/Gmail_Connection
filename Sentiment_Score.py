@@ -1,8 +1,8 @@
-import imaplib
-import email
-import pandas as pd 
-from textblob import TextBlob
-import getpass
+import imaplib #To make a connection to a socket and return a connection
+import email #Used to iterate over the email_message and walk through the body 
+import pandas as pd #To create the dataframe
+from textblob import TextBlob #It is similar to the NLTK Library but it is easy to use and some extra features are also there
+import getpass #It is for getting the raw_input from user in password type
 
 mail = imaplib.IMAP4_SSL('imap.gmail.com')
 # imaplib module implements connection based on IMAPv4 protocol
@@ -16,7 +16,7 @@ print 'Connected ! \n'
 
 
 mail.list() # Lists all labels in GMail
-mail.select('INBOX') # Connected to inbox.
+mail.select('INBOX') # Connected to inbox. #You can select for any other folder in the mail (You can see in the mail.list()
 result, data = mail.uid('search', None, "ALL")
 
 
@@ -56,6 +56,7 @@ for x in range(i):
 		print part.get_charsets()
 		if part.get_content_type() == "text/plain" and {"utf-8", "UTF-8"}.intersection(part.get_charsets()):
 			body = part.get_payload(decode=True) 
+			#Creating a TextBlob object to perform various textblob methods on it
 			blob = TextBlob(body.decode('utf-8'))
 			print blob
 			#print body + "\n\n"
